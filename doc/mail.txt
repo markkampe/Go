@@ -1,0 +1,80 @@
+cat go
+
+
+From carls@ism780.UUCP  Fri, 25 Oct 85 22:38:38 PDT
+Date: Fri, 25 Oct 85 22:38:38 PDT
+From: Carl Switzky <carls@ism780.UUCP>
+Subject: another go note ...
+To: ucla-cs!lcc.mark
+
+... that may be of interest to you.
+
+    --  Carl S.
+
+/* Written  6:53 pm  Oct 22, 1985 by lai@ucbvax in ISM780:net.games.go */
+/* ---------- "references" ---------- */
+[]
+
+Does anyone have/know_of any papers on the design of algorithms/programs
+to play go?  Any help would be much appreciated.  (I've decided to
+try my hand at writing a program to play go ...)
+
+                                                Nick
+
+ARPANET:        lai@shadow.berkeley.edu
+MILNET:         lai@decwrl.dec.com
+USENET:         ..!ucbvax!lai or ..!decwrl!lai
+-- 
+---------------------------------------------------------------------------
+
+"Muffins is all you eat because pearls would cause internal bleeding ..."
+
+Nick Lai
+
+ARPANET:        lai@ucbvax.berkeley.edu
+MILNET:         lai@decwrl.ARPA
+USENET:         ..!ucbvax!lai or ..!decwrl!lai
+/* End of text from ISM780:net.games.go */
+/* Written  9:24 am  Oct 24, 1985 by jack@cca in ISM780:net.games.go */
+> Does anyone have/know_of any papers on the design of algorithms/programs
+> to play go?  Any help would be much appreciated.  (I've decided to
+> try my hand at writing a program to play go ...)
+> 
+>                                               Nick
+
+This may be of general interest:
+
+D. B. Benson.
+        Life in the game of go.
+        Information Sciences 10, 17-29 (1976).
+
+M. Tackett.
+        A pattern recognition approach to tesuji programming in go.
+        Washington State University, Pullman, Washington.
+        (technical report?)
+        This paper has three references to Proceedings of ACM-CIPS
+        Pacific Northwest Symposium (June 1976) to papers by D.B. Benson and
+        J.D. Starkey (last reference), M. Tackett, and P. Evers.
+
+J. Miller.
+        The end game of go. also from WSU.
+        
+D. B. Benson & J. D. Starkey
+        The game of go on the computer.
+
+These people were (are?) all at Washington State University, Pullman.
+In the abstract of the Benson & Starkey paper they say "At WSU we have
+begun a long term project to play ... Go on the computer". I didn't
+follow the work - does anyone know if the project is still going on or
+what has happened to it?
+
+
+        Jack Orenstein
+/* End of text from ISM780:net.games.go */
+
+
+From Spamware  Thu May 19 11:07:38 1988
+
+bottom of file
+
+spica: 

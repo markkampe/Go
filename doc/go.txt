@@ -1,0 +1,279 @@
+*HELP ?		(basic command summary)
+GO  BASIC COMMAND SUMMARY
+
+Making and Unmaking moves
+    <position>   ... next player move at <position>
+    b <position> ... black move at <position>
+    w <position> ... white move at <position>
+    u <#moves>   ... unmake one or more previous moves
+
+a <position> can be specified as <row><col> or <col><row>
+a <row> is specified by a number (1 - 19); a <col> by a letter (a - s)
+a <position> of '-' indicates a passed move
+
+Other basic commands
+    ? <command>  ... more information on <command>
+    q		 ... quit without saving game
+    x <file>     ... exit and save game to <file>
+    n <size>     ... start new game on a <size>-line board
+    h <#stones>  ... specify black's handicap
+
+input editing:
+    ^H	        backspace
+    ^U,^X	line delete
+    ^L	        refresh screen
+*MORE		(summary of esoteric commands)
+GO  COMMAND SUMMARY (continued)
+
+Game saving and replaying commands:
+    s <file>    ... save game to <file>
+    f <file>    ... read commands from <file>
+    r <args>    ... move-at-a-time replay from a file
+
+Information query/display commands
+    i <args>    ... tactical information requests
+    e <args>    ... strategic estimation requests
+
+Option setting commands
+   d <options> ... set display options
+   o <options> ... set program options
+ 
+Other commands:
+    # <text>    ... display comment <text> on screen
+    g <string>  ... set the name string for this game
+    a <Q-#>     ... specify player's ability level
+    p <name>	... specify player's name
+    D <args>	... diagnostic exercise and display functions
+*MORE		(summary of wierd stuff)
+GO  COMMAND SUMMARY (continued)
+
+Command line parameters
+    The GO program can accept file names and flags as command line
+    parameters.  All arguments are processed in order.  Filenames
+    are treated as if they had been specified as arguments to an 'f'
+    command and processed for commands.  Arguments beginning with a 
+    '-' are treated as individual commands, to be processed after the 
+    leading '-' is stripped off.
+
+    Parameters beginning with a '+' indicate machine specific arguments,
+    and vary with the type of machine being used.  More information on
+    these arguments can be obtained with the command '? +'.
+
+Cursor defined arguments
+    In some implementations of this program, a mouse or other cursor
+    positioning mechanism can be used to enter commands.  If the cursor
+    is moved to some board position, the designation of that position
+    will be automatically appended to any command that is entered.  Thus
+    placing the cursor on position 'd5' and typing return will cause a
+    move to be made to 'd5'.  Placing the cursor on that position and 
+    typing 'i<return>' will cause a display of information about the group
+    at that position.
+*HELP bwm-	(description of move specifications)
+Moves
+    A GO move can be specified as a <row><column> or as a
+    <column><row>.  A <row> is identified by a one or two
+    digit number between 1 and 19.  A <column> is a single
+    letter between a and s.  The board origin is the near
+    left corner as viewed by the user/player.
+ 
+Thus:
+    1a or a1	near left coner of board
+    19s or s19	far right corner of board
+    10i or i10 	center of board
+    4i or i4	near central handicap point
+ 
+Move commands
+    Moves are typically made simply by entering the position
+    at which the stone should be placed.  The w and b commnds
+    specify which color of stone should be placed, and can be
+    used to make moves out of normal game sequence.  They can
+    also be used to construct particular board situations.
+
+A move specification of "-" indicates a passed move.
+*HELP ap	(player's ability and name)
+PLAYER ABILITY AND NAME
+
+    The a command is used to specify the player's ability.  A positive
+    number is taken to be KYU, and a negative number to be DAN.  If the
+    player's ability has been specified, the 'h' command will use that
+    ability to determine an appropriate handicap.
+
+    The p command is used to specify the player's name, as it should
+    appear in the game record.  This defaults to the user's login name.
+*HELP h	(handicaps)
+HANDICAPS
+
+    The h command can be used to request a handicap.  If no argument
+    is specified, the player will be given a handicap appropriate to
+    his ability.  If a number is specified, the player will be given 
+    a handicap of that many stones.
+
+    The B command is a special move command, that requests the program
+    to place a handicap stone at a particular position.  This command is
+    indended to be used in game records to note where handicap stones were 
+    placed - but it can be used (by the player) to place handicap stones
+    at arbitrary positions.
+*HELP n		(new games)
+Starting a new game
+    The n command can be used to start a new game.  If you want to play on
+    a board that is smaller than 19x19, you can specify the board size as
+    an argument.  If no argument is specified, the new game will be played
+    on a board the same size as the old one.  If any moves have been made,
+    the player will be asked to confirm that the old game is to be destroyed.
+
+    Thus
+	n	... start a new game
+	n 13	... start a new game on a 13-line board
+*HELP g	(naming games)
+Naming a game
+    For historical/identification purposes, an arbitrary name (of up to
+    32 characters) can be associated with each game.  This game will be
+    displayed above the board, and recorded along with the game when it
+    is saved.  By default, all games are identified by the name of the 
+    player and the time and date at which the game started.
+
+    Examples
+	g Sample - Rin V. Fujisawa (1969)
+	g Illustration of 1000-year KO bug
+	g Test of inf funcs around ha-ne
+*HELP qsx	(game saving)
+Saving a game
+    The s and x commands save a record of the current game
+    into a specified file.  If no file name is given, the
+    record will be written into a file called go.save in
+    the current working directory
+ 
+    The game is saved by writing out a list of all of the
+    moves that have been made.  The game record is written
+    in ordinary ASCII and is entirely human readable.  It
+    is possible to restore a game by specifying the name
+    the saved record on the command line, or with the f
+    command.
+
+    The q command can be used to exit without saving the
+    game - although the user will be asked to confirm that
+    the game is not to be saved.
+*HELP ie	(information query commands)
+INFORMATION/ESTIMATION QUERIES
+
+Information requests ask for objective information about the state of the
+board (e.g. postitions of stones, sizes of groups, and numbers of liberties).
+Estimation requests ask for more subjective opinions about the outcome of
+the game such as where the walls seem to be and how much territory they contain.
+
+Information requests
+    b   ...      display liberty counts for black groups
+    w   ...      display liberty counts for white groups
+    position ... display stones & libs in a particular group
+
+Estimation requests
+    i	...	display influence function
+    s   ...	display estimated final score
+    t	...	display estimated teritory
+    w   ...     display estimated walls
+
+note: seemingly redundant displays are available because some
+      terminals have too few distinct character attributes,
+      and can't really present the more comprehensive displays
+*HELP do	(display commands and options)
+Display options
+    The normal board display merely shows the black and
+    white stones that have been placed on the board.  More
+    interesting display modes can be requested:
+
+    m - historical display by move numbers
+    n - normal display of black and white stones
+
+Program options
+    b/n - blunder moves allowed / no blunder moves allowed
+    e/q - echo commands while processing files / quiet game
+    v/q - verbose game commentary / quiet game
+*HELP f		(processing files of GO commands)
+Command file processing
+    GO normally takes its commands from the console, but
+    It can be instructed to read commands from files.
+    This can be done by specifying the names of the files
+    to be read on the command line, or with the f command.
+
+    Command files can be used to set options, or to create
+    a particular situation on the board.  Any command that
+    can be given from the terminal can be given from a
+    command file - including the nested invocation of
+    other command files.  One particularly important use
+    of command files is to restore saved games.  Saved
+    games are written out in a format that can be re-read
+    as move commands.
+
+    After processing a command file, GO returns to reading
+    commands from the terminal.
+*HELP #		(comments)
+Comments
+    Any line that begins with a # character will be treated as a comment.
+    It will be displayed on the message line, but will have no other
+    affect on the game.  
+
+    Such comments can be used to identify a game, add commentary to a 
+    game, or to cause particular messages to be displayed when the game
+    is replayed.
+*HELP r		(controlled replaying of saved games)
+Replaying from a file
+    Occasionally, it may be desirable to replay a game from
+    a file, one move at a time.  The 'replay' command can
+    be used to accomplish this.  There options are:
+ 
+	r <file> ... open specified file and read one move
+	r        ... read next move from file
+	r #      ... read next # moves from file
+ 
+    Once the requested moves have been replayed, you are
+    free to enter arbitrary commands (including making
+    and/or unmaking moves) before replaying other moves.
+*HELP D		(debuging modes)
+DIAGNOSTIC FUNCTIONS
+
+    Queries
+	a	... audit the usage of corruptable resources
+
+    Diagnostic functions
+	s	... enter speed check mode
+	t	... enter tactical analysis mode
+
+    Diagnostic tracing
+	The program can, on request, produce a detailed record of 
+	everything it does or things of doing.  This trace is written
+	to the file go.dbg in the current directory.  Tracing is 
+	enabled and disabled with + and - arguments:
+
+	    +<opts>	... enable tracing according to specified options
+	    -<opts>	... disable tracing according to specified options
+*MORE
+    available trace options
+	*	... all trace options
+	a	... log info on all affected strings
+	e	... log all estimates
+	f	... log for fantasized as well as actual moves
+	i	... log all invalid moves
+	k	... log all kills
+	m	... log all moves
+*HELP +		(command line parameters for the PC)
+PC ONLY - command line parameters
+
+	There are a variety of different monitors and display adaptors
+	available on the various PC models and look-alikes.  The go program
+	will attempt to determine what type of adaptor you have and provide
+	the best possible display.  You can help the program figure out what
+	type of monitor you have by properly setting your terminal mode before
+	invoking the go program:
+	    mono	- normal monochrome display and adaptor
+	    bw80	- high resolution monochrome display 
+	    co80	- color display	
+
+	The GO program will attempt to select a reasonable display mode for
+	your machine.  If you do not like the display mode that GO picks, you
+	can force a particular mode with special command line parameters:
+	    +d		- dumb: normal monochrome display and adaptor
+	    +c		- color; 25x80 16-color display
+	    +m		- monochrome; 25x80 16-grey tone display
+	    +#		- use display mode number # (0 <= # <= 16)
+	    +g		- use graphics characters to make board and stones
+	    +.		- use only normal characters to make board and stones

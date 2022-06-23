@@ -1,0 +1,58 @@
+Improved Territory Analysis
+	consider how containiment functions can be employed in program
+	implement tentative and actual containment functions
+
+Eye Analysis
+	research whether or not other people keep track of regions of
+	free space the same way they keep track of strings of stones
+
+Openings
+	reread opening metaphysics in the beginning and consider how
+	it might be implemented
+
+Joseki
+	read over some basic joseki
+	design encoding for joseki positions and algorithm for doing it
+	design routines to turn move histories into joseki records
+	consider functions to display joseki dictionary
+	design joseki interpreter
+	build basic joseki dictionary
+	figure out how to recognize when it is time to invoke joseki
+
+Eye-shape analysis
+	extend joseki dictionary for eye-shape and life/death tactics
+	design killer/saver
+	consider other generalizations to this concept
+
+Move evaluation
+	design human aided tactical analyzer, where user picks moves
+	to consider and designates those to consider more deeply
+
+	design human interface to move evaluator
+
+Move generation
+	figure out how to represent tactical goals - since we should
+	always have an objective basis for move evaluation.
+
+	consider design of one or more move generators and framework
+	into which multiple move generators could fit
+
+real play
+	consider how to keep around some of our tentative analysis
+	so that we can go much more quickly when the opponent makes
+	a move that we predicted - like maybe keep around several
+	trees that looked best, to save us wear and tear on the
+	move generator when things go as we expected - use the time
+	to go deeper into what we predicted.
+
+ladder analysis
+	decide how to recognize when ladder analysis should be invoked
+	decide how to build iterative ladder analysis
+		is it necessary to really make the moves, or would it
+		be sufficient to scan for stones along the path
+	perhaps this is easily handled as a trivial case of a special
+		"chase" move generator whose whole purpose is to try
+		to keep someone bottled by maintaining atari's.  It 
+		might well buy us no runs along the first row at the
+		same time - using a more liberal definition of a ladder.
+

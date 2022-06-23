@@ -1,0 +1,13 @@
+# GO game record, GO Referee V0.1
+#   Player name: mark, ranking 0-Q
+#   Game saved:  6/19/85 19:21
+#   Game name:   test of KO recognition
+g test of KO recognition
+b: d4	(move 1)
+w: c4	(move 2)
+b: c3	(move 3)
+w: e4	(move 4)
+b: e3	(move 5)
+w: d5	(move 6, atari)
+b: d2	(move 7)
+w: d3	(move 8, ko)

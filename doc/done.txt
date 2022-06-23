@@ -1,0 +1,18 @@
+1/8/87	mark	trying to get back into it
+
+simplified choice of game display mode to fix problems with monochrome
+monitors on machines that claim to be better.  Now, if you come in in
+monochrome mode, you play in monochrome mode.  The user can determine
+the mode of play by using the "mode" command before starting the game.
+
+fixed a bug in KO handling that was introduced in the massive rearchitecting.
+Now, ko is no longer a global.  Each move has an associated ko position
+(typically 0).  The KO check is always performed by comparing the proposed
+move position with the KO position from the previous move.  This eliminates
+the need to change the global variable after a play or undo, and the searches
+to find where the KO position might be - at a cost of only a few hundred
+bytes.
+
+also fixed numerous erroneous comments in move.h and libs.c
+
+
